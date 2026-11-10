@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>IRP document intake — vibe-coded chat and DynamoDB</title>
+<title>IRP delivery models — estimated client cost</title>
 <style>
   :root { --orange:#FD5108; --ink:#1A1A1A; --muted:#5C5C5C; }
   * { box-sizing: border-box; }
@@ -13,33 +13,15 @@
     margin:16px auto;
     background:#fff;
     padding:28px 36px 32px;
-    min-height:680px;
   }
   .eyebrow { color:var(--orange); font-size:12px; font-weight:700; letter-spacing:0.12em; margin:0 0 8px; }
   h1 { font-size:32px; line-height:1.15; margin:0 0 10px; font-weight:700; }
   .lead { color:var(--muted); font-size:16px; line-height:1.35; margin:0 0 16px; }
-  .cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-  .card { border-radius:10px; padding:16px 18px 8px; min-height:360px; }
-  .now { background:#FFF4ED; }
-  .later { background:#F4F4F4; }
   .pill { display:inline-block; border-radius:6px; padding:4px 10px; font-size:11px; font-weight:700; letter-spacing:0.06em; }
   .pill.now { background:var(--orange); color:#fff; }
   .pill.later { background:#E6E6E6; color:#3A3A3A; }
-  h2 { font-size:22px; margin:10px 0 4px; }
-  .sub { color:var(--muted); font-size:14px; margin:0 0 8px; }
-  .stat { font-size:15px; margin:0 0 12px; }
-  .stat b { font-size:16px; }
-  .stat .hot { color:var(--orange); }
-  table { width:100%; border-collapse:collapse; }
-  td { font-size:14px; line-height:1.3; padding:6px 0; vertical-align:top; }
-  td.k { font-weight:700; width:118px; padding-right:8px; }
-  .later td { padding:5px 0; }
-  .rec { margin-top:16px; background:#1A1A1A; color:#fff; border-radius:10px; padding:14px 18px 16px; }
-  .rec .label { color:var(--orange); font-size:12px; font-weight:700; letter-spacing:0.08em; margin:0 0 6px; }
-  .rec p { margin:0; font-size:15px; line-height:1.4; }
-  .cost h1 { font-size:30px; }
   .cost-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
-  .cost-card { border-radius:10px; padding:16px 16px 14px; min-height:390px; }
+  .cost-card { border-radius:10px; padding:16px 16px 18px; }
   .cost-card h2 { font-size:18px; margin:10px 0 8px; }
   .cost-card .team { font-size:14px; margin:0 0 4px; }
   .cost-card .phase { color:var(--muted); font-size:14px; line-height:1.35; margin:0 0 16px; min-height:40px; }
@@ -50,7 +32,7 @@
   .basis .label { color:var(--orange); font-size:12px; font-weight:700; letter-spacing:0.08em; margin:0 0 6px; }
   .basis p { margin:0; font-size:14px; line-height:1.4; }
   @media (max-width:800px) {
-    .cols { grid-template-columns:1fr; }
+    .cost-grid { grid-template-columns:1fr; }
     h1 { font-size:26px; }
     .slide { padding:20px; }
   }
@@ -58,45 +40,6 @@
 </head>
 <body>
   <main class="slide">
-    <p class="eyebrow">IRP &nbsp;·&nbsp; MRD AND DOCUMENT INTAKE</p>
-    <h1>Start with a vibe-coded chat. Keep DynamoDB separate.</h1>
-    <p class="lead">On upload, an MRD and supporting documents are written to both a vibe-coded temporary store and DynamoDB. The two databases are not connected.</p>
-    <div class="cols">
-      <section class="card now">
-        <span class="pill now">RECOMMENDED NOW</span>
-        <h2>Vibe-coded chat</h2>
-        <p class="sub">Built on its own, then stitched in. Temporary database only.</p>
-        <p class="stat"><b class="hot">About 80–90%</b> &nbsp;on the documents provided</p>
-        <table>
-          <tr><td class="k">Build</td><td>Vibe coded on its own, then stitched in.</td></tr>
-          <tr><td class="k">Store</td><td>Temporary database. The chat reads only this.</td></tr>
-          <tr><td class="k">Scope</td><td>Answers questions. Does not create records.</td></tr>
-          <tr><td class="k">Knowledge</td><td>Loaded once, from the uploaded documents.</td></tr>
-          <tr><td class="k">Time</td><td>Faster. Enough for this first step.</td></tr>
-        </table>
-      </section>
-      <section class="card later">
-        <span class="pill later">TARGET ARCHITECTURE</span>
-        <h2>Platform on DynamoDB</h2>
-        <p class="sub">The governed record. Checked before anything is stored.</p>
-        <table>
-          <tr><td class="k">Record</td><td>Requirements, risk, evidence, and the package in one record.</td></tr>
-          <tr><td class="k">Landscape</td><td>Applicable rules checked against each requirement.</td></tr>
-          <tr><td class="k">Traceability</td><td>Need, requirement, and verification stay linked.</td></tr>
-          <tr><td class="k">Learning loop</td><td>A failed test updates the requirement and the plan.</td></tr>
-          <tr><td class="k">Readiness</td><td>What can move, what is missing, and what would be filed.</td></tr>
-          <tr><td class="k">Risk</td><td>Hazards and the controls that close them.</td></tr>
-          <tr><td class="k">Package</td><td>Built from the record and checked before storage.</td></tr>
-          <tr><td class="k">Platform</td><td>DynamoDB, APIs, integrations, and versioned writes.</td></tr>
-        </table>
-      </section>
-    </div>
-    <section class="rec">
-      <p class="label">RECOMMENDATION</p>
-      <p>Jeff can develop the vibe-coded chat and share it. The team stitches it in. On upload, the file goes to the temporary database and to DynamoDB, and those two stay unconnected. Use the chat for this first step, and say plainly that its answers are indicative, not design inputs.</p>
-    </section>
-  </main>
-  <main class="slide cost">
     <p class="eyebrow">IRP &nbsp;·&nbsp; THREE DELIVERY MODELS</p>
     <h1>Estimated client cost</h1>
     <p class="lead">Planning estimate from team size and duration. The low end is the smaller team and the shorter time. The high end is the larger team and the longer time.</p>
