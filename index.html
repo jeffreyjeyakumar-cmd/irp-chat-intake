@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IRP document intake — vibe-coded chat and DynamoDB</title>
+<style>
+  :root { --orange:#FD5108; --ink:#1A1A1A; --muted:#5C5C5C; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:#e9e9e9; font-family:Arial, Helvetica, sans-serif; color:var(--ink); }
+  .slide {
+    width:min(1280px, calc(100vw - 32px));
+    margin:16px auto;
+    background:#fff;
+    padding:28px 36px 32px;
+    min-height:680px;
+  }
+  .eyebrow { color:var(--orange); font-size:12px; font-weight:700; letter-spacing:0.12em; margin:0 0 8px; }
+  h1 { font-size:32px; line-height:1.15; margin:0 0 10px; font-weight:700; }
+  .lead { color:var(--muted); font-size:16px; line-height:1.35; margin:0 0 16px; }
+  .cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .card { border-radius:10px; padding:16px 18px 8px; min-height:360px; }
+  .now { background:#FFF4ED; }
+  .later { background:#F4F4F4; }
+  .pill { display:inline-block; border-radius:6px; padding:4px 10px; font-size:11px; font-weight:700; letter-spacing:0.06em; }
+  .pill.now { background:var(--orange); color:#fff; }
+  .pill.later { background:#E6E6E6; color:#3A3A3A; }
+  h2 { font-size:22px; margin:10px 0 4px; }
+  .sub { color:var(--muted); font-size:14px; margin:0 0 8px; }
+  .stat { font-size:15px; margin:0 0 12px; }
+  .stat b { font-size:16px; }
+  .stat .hot { color:var(--orange); }
+  table { width:100%; border-collapse:collapse; }
+  td { font-size:14px; line-height:1.3; padding:6px 0; vertical-align:top; }
+  td.k { font-weight:700; width:108px; padding-right:8px; }
+  .rec { margin-top:16px; background:#1A1A1A; color:#fff; border-radius:10px; padding:14px 18px 16px; }
+  .rec .label { color:var(--orange); font-size:12px; font-weight:700; letter-spacing:0.08em; margin:0 0 6px; }
+  .rec p { margin:0; font-size:15px; line-height:1.4; }
+  @media (max-width:800px) {
+    .cols { grid-template-columns:1fr; }
+    h1 { font-size:26px; }
+    .slide { padding:20px; }
+  }
+</style>
+</head>
+<body>
+  <main class="slide">
+    <p class="eyebrow">IRP &nbsp;·&nbsp; MRD AND DOCUMENT INTAKE</p>
+    <h1>Start with a vibe-coded chat. Keep DynamoDB separate.</h1>
+    <p class="lead">On upload, an MRD and supporting documents are written to both a vibe-coded temporary store and DynamoDB. The two databases are not connected.</p>
+    <div class="cols">
+      <section class="card now">
+        <span class="pill now">RECOMMENDED NOW</span>
+        <h2>Vibe-coded chat</h2>
+        <p class="sub">Built on its own, then stitched in. Temporary database only.</p>
+        <p class="stat"><b class="hot">About 80–90%</b> &nbsp;on the documents provided</p>
+        <table>
+          <tr><td class="k">Build</td><td>Vibe coded on its own, then stitched in.</td></tr>
+          <tr><td class="k">Store</td><td>Temporary database. The chat reads only this.</td></tr>
+          <tr><td class="k">Scope</td><td>Answers questions. Does not create records.</td></tr>
+          <tr><td class="k">Knowledge</td><td>Loaded once, from the uploaded documents.</td></tr>
+          <tr><td class="k">Time</td><td>Faster. Enough for this first step.</td></tr>
+        </table>
+      </section>
+      <section class="card later">
+        <span class="pill later">TARGET ARCHITECTURE</span>
+        <h2>DynamoDB build</h2>
+        <p class="sub">The actual database. Not fed by the vibe-coded chat.</p>
+        <p class="stat"><b>Validated</b> &nbsp;before anything is stored</p>
+        <table>
+          <tr><td class="k">Build</td><td>Platform build, with APIs and integrations.</td></tr>
+          <tr><td class="k">Store</td><td>DynamoDB. Written on upload, not by the chat.</td></tr>
+          <tr><td class="k">Scope</td><td>Creates and updates records after a check.</td></tr>
+          <tr><td class="k">Knowledge</td><td>Stays current, because it reads the live record.</td></tr>
+          <tr><td class="k">Time</td><td>Longer. This is the build we keep.</td></tr>
+        </table>
+      </section>
+    </div>
+    <section class="rec">
+      <p class="label">RECOMMENDATION</p>
+      <p>Jeff can develop the vibe-coded chat and share it. The team stitches it in. On upload, the file goes to the temporary database and to DynamoDB, and those two stay unconnected. Use the chat for this first step, and say plainly that its answers are indicative, not design inputs.</p>
+    </section>
+  </main>
+</body>
+</html>
