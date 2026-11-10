@@ -37,6 +37,18 @@
   .rec { margin-top:16px; background:#1A1A1A; color:#fff; border-radius:10px; padding:14px 18px 16px; }
   .rec .label { color:var(--orange); font-size:12px; font-weight:700; letter-spacing:0.08em; margin:0 0 6px; }
   .rec p { margin:0; font-size:15px; line-height:1.4; }
+  .cost h1 { font-size:30px; }
+  .cost-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
+  .cost-card { border-radius:10px; padding:16px 16px 14px; min-height:390px; }
+  .cost-card h2 { font-size:18px; margin:10px 0 8px; }
+  .cost-card .team { font-size:14px; margin:0 0 4px; }
+  .cost-card .phase { color:var(--muted); font-size:14px; line-height:1.35; margin:0 0 16px; min-height:40px; }
+  .fee { color:var(--orange); font-size:32px; font-weight:700; line-height:1; margin:0; }
+  .fee-note { color:var(--muted); font-size:13px; margin:6px 0 10px; }
+  .after { font-size:16px; font-weight:700; margin:0; }
+  .basis { margin-top:16px; background:#1A1A1A; color:#fff; border-radius:10px; padding:14px 18px 16px; }
+  .basis .label { color:var(--orange); font-size:12px; font-weight:700; letter-spacing:0.08em; margin:0 0 6px; }
+  .basis p { margin:0; font-size:14px; line-height:1.4; }
   @media (max-width:800px) {
     .cols { grid-template-columns:1fr; }
     h1 { font-size:26px; }
@@ -82,6 +94,44 @@
     <section class="rec">
       <p class="label">RECOMMENDATION</p>
       <p>Jeff can develop the vibe-coded chat and share it. The team stitches it in. On upload, the file goes to the temporary database and to DynamoDB, and those two stay unconnected. Use the chat for this first step, and say plainly that its answers are indicative, not design inputs.</p>
+    </section>
+  </main>
+  <main class="slide cost">
+    <p class="eyebrow">IRP &nbsp;·&nbsp; THREE DELIVERY MODELS</p>
+    <h1>Estimated client cost</h1>
+    <p class="lead">Planning estimate from team size and duration. The low end is the smaller team and the shorter time. The high end is the larger team and the longer time.</p>
+    <div class="cost-grid">
+      <section class="cost-card" style="background:#FFF4ED">
+        <span class="pill now">CO-BUILD</span>
+        <h2>PwC and the client build it</h2>
+        <p class="team">8–12 people for 18–24 months.</p>
+        <p class="phase">8–12 months of build and UAT, then hypercare with the same team.</p>
+        <p class="fee">$5.2–10.4M</p>
+        <p class="fee-note">Program fee, including hypercare</p>
+        <p class="after">Build and UAT alone is $2.3–5.2M. The rest is hypercare.</p>
+      </section>
+      <section class="cost-card" style="background:#F7F7F7">
+        <span class="pill later">CO-BUILD, PwC MAINTAINS</span>
+        <h2>PwC builds it and runs it</h2>
+        <p class="team">8–12 people for 16–18 months.</p>
+        <p class="phase">Then a support team of 4–6.</p>
+        <p class="fee">$4.6–7.8M</p>
+        <p class="fee-note">Implementation</p>
+        <p class="after">Then $1.7–2.6M a year.</p>
+      </section>
+      <section class="cost-card" style="background:#F4F4F4">
+        <span class="pill later">MANAGED SERVICE</span>
+        <h2>PwC configures and runs it</h2>
+        <p class="team">4–6 people for 6–8 months.</p>
+        <p class="phase">Then 3 support engineers.</p>
+        <p class="fee">$0.9–1.7M</p>
+        <p class="fee-note">Implementation</p>
+        <p class="after">Then $1.3M a year.</p>
+      </section>
+    </div>
+    <section class="basis">
+      <p class="label">BASIS</p>
+      <p>Client fee at a $225 blended hourly rate and 160 hours a person-month. A 40% margin is included in that rate. Planning estimate, not a quote.</p>
     </section>
   </main>
 </body>
