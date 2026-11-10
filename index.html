@@ -32,7 +32,8 @@
   .stat .hot { color:var(--orange); }
   table { width:100%; border-collapse:collapse; }
   td { font-size:14px; line-height:1.3; padding:6px 0; vertical-align:top; }
-  td.k { font-weight:700; width:108px; padding-right:8px; }
+  td.k { font-weight:700; width:118px; padding-right:8px; }
+  .later td { padding:5px 0; }
   .rec { margin-top:16px; background:#1A1A1A; color:#fff; border-radius:10px; padding:14px 18px 16px; }
   .rec .label { color:var(--orange); font-size:12px; font-weight:700; letter-spacing:0.08em; margin:0 0 6px; }
   .rec p { margin:0; font-size:15px; line-height:1.4; }
@@ -64,15 +65,17 @@
       </section>
       <section class="card later">
         <span class="pill later">TARGET ARCHITECTURE</span>
-        <h2>DynamoDB build</h2>
-        <p class="sub">The actual database. Not fed by the vibe-coded chat.</p>
-        <p class="stat"><b>Validated</b> &nbsp;before anything is stored</p>
+        <h2>Platform on DynamoDB</h2>
+        <p class="sub">The governed record. Checked before anything is stored.</p>
         <table>
-          <tr><td class="k">Build</td><td>Platform build, with APIs and integrations.</td></tr>
-          <tr><td class="k">Store</td><td>DynamoDB. Written on upload, not by the chat.</td></tr>
-          <tr><td class="k">Scope</td><td>Creates and updates records after a check.</td></tr>
-          <tr><td class="k">Knowledge</td><td>Stays current, because it reads the live record.</td></tr>
-          <tr><td class="k">Time</td><td>Longer. This is the build we keep.</td></tr>
+          <tr><td class="k">Record</td><td>Requirements, risk, evidence, and the package in one record.</td></tr>
+          <tr><td class="k">Landscape</td><td>Applicable rules checked against each requirement.</td></tr>
+          <tr><td class="k">Traceability</td><td>Need, requirement, and verification stay linked.</td></tr>
+          <tr><td class="k">Learning loop</td><td>A failed test updates the requirement and the plan.</td></tr>
+          <tr><td class="k">Readiness</td><td>What can move, what is missing, and what would be filed.</td></tr>
+          <tr><td class="k">Risk</td><td>Hazards and the controls that close them.</td></tr>
+          <tr><td class="k">Package</td><td>Built from the record and checked before storage.</td></tr>
+          <tr><td class="k">Platform</td><td>DynamoDB, APIs, integrations, and versioned writes.</td></tr>
         </table>
       </section>
     </div>
